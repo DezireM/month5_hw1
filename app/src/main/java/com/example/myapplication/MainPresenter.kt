@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.graphics.Color
+
 class MainPresenter {
 
     private val model = CounterModel()
@@ -26,7 +28,7 @@ class MainPresenter {
 
         when (count) {
             10 -> contract?.showToast("Поздравляем")
-            15 -> contract?.changeTextColor(android.graphics.Color.GREEN)
+            15 -> contract?.changeTextColor(Color.GREEN)
         }
     }
 
