@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingHorizontal="16dp"
-    tools:context=".MainActivity">
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingHorizontal="16dp"
+tools:context=".ui.activity.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="36dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_increment"
-        android:text="+"
-        android:layout_gravity="center_vertical|start"
-        android:textSize="24sp"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_decrement"
-        android:text="-"
-        android:layout_gravity="center_vertical|end"
-        android:textSize="24sp"
-        />
+<TextView
+    android:id="@+id/tv_count"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello World!"
+    android:textStyle="bold"
+    android:textSize="36sp"
+    android:textColor="@color/black"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="36dp"
+    />
 
+<Button
+    android:id="@+id/btn_increment"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="+"
+    android:layout_gravity="center_vertical|start"
+    android:textSize="24sp"/>
+
+<Button
+    android:id="@+id/btn_decrement"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="-"
+    android:layout_gravity="center_vertical|end"
+    android:textSize="24sp"/>
 
 </FrameLayout>
