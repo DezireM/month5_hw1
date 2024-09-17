@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import android.graphics.Color
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -8,7 +7,7 @@ import retrofit2.Response
 class LovePresenter(private val contract: LoveContract.View) : LoveContract.Presenter  {
 
     override fun getPercentage(firstName: String, secondName: String) {
-        App.api.getPercentage(
+        RetrofitService.api.getPercentage(
             key = "c19b61b845mshb06557c9a284de4p1c4c7ajsn4839e0b0c896",
             host = "love-calculator.p.rapidapi.com",
             firstName = firstName,
