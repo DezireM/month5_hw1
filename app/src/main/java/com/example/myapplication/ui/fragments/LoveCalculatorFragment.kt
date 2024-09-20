@@ -7,16 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.myapplication.LoveContract
-import com.example.myapplication.LoveModel
-import com.example.myapplication.LovePresenter
+import com.example.myapplication.network.LoveModel
+import com.example.myapplication.ViewModel
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoveCalculatorBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 class LoveCalculatorFragment : Fragment(), LoveContract.View {
 
     private var _binding: FragmentLoveCalculatorBinding? = null
     private val binding get() = _binding!!
-    private val presenter = LovePresenter(this)
+    private val presenter = ViewModel(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +54,7 @@ class LoveCalculatorFragment : Fragment(), LoveContract.View {
             arguments = bundle
         }
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, resultFragment)
+            .replace(R.id.main, resultFragment)
             .addToBackStack(null).commit()
     }
 
