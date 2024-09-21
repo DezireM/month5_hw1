@@ -63,7 +63,7 @@
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/rounded_et"
                         android:hint="@string/you"
-                        android:padding="6dp"/>
+                        android:padding="16dp"/>
 
                     <TextView
                         android:id="@+id/tv_sname"
@@ -81,7 +81,7 @@
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/rounded_et"
                         android:hint="@string/me"
-                        android:padding="6dp"/>
+                        android:padding="16dp"/>
                 </LinearLayout>
 
                 <Button

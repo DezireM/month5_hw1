@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentResultBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ResultFragment : Fragment() {
 
     private var _binding: FragmentResultBinding? = null
@@ -34,7 +35,7 @@ class ResultFragment : Fragment() {
 
         tvYouResult.text = firstName
         tvMeResult.text = secondName
-        tvProcent.text = "$percentage%"
+        tvPercent.text = "$percentage%"
 
         btnTryAgain.setOnClickListener {
             val loveCalculatorFragment = LoveCalculatorFragment()

@@ -1,27 +1,38 @@
 package com.example.myapplication
 
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.myapplication.network.LoveApiService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class LovePresenter(private val contract: LoveContract.View) : LoveContract.Presenter  {
+@HiltViewModel
+class LovePresenter @Inject constructor(
+    private val api: LoveApiService,
+): ViewModel() {
 
-    override fun getPercentage(firstName: String, secondName: String) {
-        RetrofitService.api.getPercentage(
+    val loveResultData = MutableLiveData<LoveModel>()
+    val errorData = MutableLiveData<String>()
+
+     fun getPercentage(firstName: String, secondName: String) {
+        api.getPercentage(
             key = "c19b61b845mshb06557c9a284de4p1c4c7ajsn4839e0b0c896",
             host = "love-calculator.p.rapidapi.com",
             firstName = firstName,
             secondName = secondName).enqueue(object : Callback<LoveModel> {
             override fun onResponse(p0: Call<LoveModel>, p1: Response<LoveModel>) {
                 if (p1.isSuccessful && p1.body() != null) {
-                    contract.showResult(p1.body()!!)
+                    loveResultData.postValue(p1.body()!!)
                 } else {
-                    contract.showError("Error : ${p1.message()}")
+                    errorData.postValue("Error : ${p1.message()}")
                 }
             }
 
             override fun onFailure(p0: Call<LoveModel>, p1: Throwable) {
-                contract.showError("Failure: ${p1.message}")
+                errorData.postValue("Failure: ${p1.message}")
             }
         })
     }

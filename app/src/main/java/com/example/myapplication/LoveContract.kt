@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+
+
 interface LoveContract {
 
     interface View {

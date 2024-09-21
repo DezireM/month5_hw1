@@ -11,12 +11,17 @@ import com.example.myapplication.LoveModel
 import com.example.myapplication.LovePresenter
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoveCalculatorBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoveCalculatorFragment : Fragment(), LoveContract.View {
 
     private var _binding: FragmentLoveCalculatorBinding? = null
     private val binding get() = _binding!!
-    private val presenter = LovePresenter(this)
+
+    @Inject
+    lateinit var presenter: LovePresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +41,19 @@ class LoveCalculatorFragment : Fragment(), LoveContract.View {
             if (firstName.isBlank() || secondName.isBlank()) {
                 Toast.makeText(requireContext(), "Enter both names", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
+
+
             }
 
             presenter.getPercentage(firstName, secondName)
+        }
+
+        presenter.loveResultData.observe(viewLifecycleOwner) { result ->
+            showResult(result)
+        }
+
+        presenter.errorData.observe(viewLifecycleOwner) { errorMessage ->
+            showError(errorMessage)
         }
     }
 
@@ -61,4 +76,8 @@ class LoveCalculatorFragment : Fragment(), LoveContract.View {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
