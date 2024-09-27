@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.myapplication.LoveContract
-import com.example.myapplication.LoveModel
-import com.example.myapplication.LovePresenter
+import com.example.myapplication.data.network.LoveResult
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoveCalculatorBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,7 +56,7 @@ class LoveCalculatorFragment : Fragment(), LoveContract.View {
         }
     }
 
-    override fun showResult(result: LoveModel) {
+    override fun showResult(result: LoveResult) {
         val percentage = result.percentage.toIntOrNull() ?: 0
         val bundle = Bundle().apply {
             putString("firstName", result.firstName)

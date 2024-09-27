@@ -1,8 +1,8 @@
-package com.example.myapplication
+package com.example.myapplication.data.network
 
 import com.google.gson.annotations.SerializedName
 
-class LoveModel (
+class LoveResult (
     @SerializedName("fname")
     val firstName: String,
     @SerializedName("sname")

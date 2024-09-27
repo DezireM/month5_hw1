@@ -5,10 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.example.myapplication.LoveContract
 import com.example.myapplication.R
-import com.example.myapplication.SharedPreferenceHelper
+import com.example.myapplication.application.SharedPreferenceHelper
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.network.LoveApiService
-import com.example.myapplication.ui.fragments.LoveCalculatorFragment
+import com.example.myapplication.data.network.LoveApiService
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

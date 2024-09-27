@@ -46,5 +46,7 @@
             android:gravity="center"
             android:layout_margin="10dp"
             tools:text="You should take the time to help those who need you" />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

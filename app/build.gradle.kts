@@ -62,6 +62,11 @@ dependencies {
     // Kotlin
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // Room
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
+
 }
 kapt {
     correctErrorTypes = true

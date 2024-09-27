@@ -94,6 +94,13 @@
                 android:text="@string/try_again"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/history_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="320dp"
+                android:src="@drawable/item_history" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -6,35 +6,39 @@
     app:startDestination="@id/onBoardFragment">
 
     <fragment
-        android:id="@+id/loveResultFragment"
-        android:name="com.example.myapplication.ui.fragments.ResultFragment"
-        android:label="fragment_love_result"
-        tools:layout="@layout/fragment_result">
-        <action
-            android:id="@+id/action_loveResultFragment_to_loveCalculatorFragment"
-            app:destination="@id/loveCalculatorFragment" />
-    </fragment>
-
-    <fragment
         android:id="@+id/loveCalculatorFragment"
-        android:name="com.example.myapplication.ui.fragments.ResultFragment"
+        android:name="com.example.myapplication.ui.fragments.LoveCalculatorFragment"
         android:label="fragment_love_calculator"
         tools:layout="@layout/fragment_love_calculator">
         <action
-            android:id="@+id/action_loveCalculatorFragment_to_loveResultFragment"
-            app:destination="@id/loveResultFragment" />
+            android:id="@+id/action_loveCalculatorFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.myapplication.ui.fragments.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.myapplication.ui.fragments.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history"/>
     <fragment
         android:id="@+id/onBoardFragment"
         android:name="com.example.myapplication.ui.fragments.onboard.OnBoardFragment"
         android:label="fragment_on_board"
-        tools:layout="@layout/fragment_on_board">
+        tools:layout="@layout/fragment_on_board" >
         <action
             android:id="@+id/action_onBoardFragment_to_loveCalculatorFragment"
             app:destination="@id/loveCalculatorFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/onBoardViewPagerFragment"
         android:name="com.example.myapplication.ui.fragments.onboard.OnBoardViewPagerFragment"

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.R
-import com.example.myapplication.SharedPreferenceHelper
+import com.example.myapplication.application.SharedPreferenceHelper
 import com.example.myapplication.databinding.FragmentOnBoardBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
