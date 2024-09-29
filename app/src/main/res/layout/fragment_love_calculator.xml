@@ -93,6 +93,12 @@
                     android:backgroundTint="@color/blue_isn"
                     android:paddingHorizontal="50dp"
                     android:text="@string/calc"/>
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 

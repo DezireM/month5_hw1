@@ -1,11 +1,11 @@
 package com.example.myapplication
 
 import android.app.Application
+import com.example.myapplication.network.LoveApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitService: Application() {
-
+object App: Application() {
     val api: LoveApiService = Retrofit.Builder()
         .baseUrl("https://love-calculator.p.rapidapi.com/")
         .addConverterFactory(GsonConverterFactory.create())

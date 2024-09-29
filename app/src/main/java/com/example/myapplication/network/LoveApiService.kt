@@ -1,9 +1,8 @@
-package com.example.myapplication
+package com.example.myapplication.network
 
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Headers
 import retrofit2.http.Query
 
 interface LoveApiService {
@@ -14,5 +13,5 @@ interface LoveApiService {
         @Header("X-Rapidapi-Host") host: String,
         @Query("fname") firstName: String,
         @Query("sname") secondName: String
-    ): Call<LoveModel>
+    ): Call<LoveResult>
 }

@@ -6,23 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.myapplication.LoveContract
-import com.example.myapplication.LoveModel
-import com.example.myapplication.LovePresenter
+import com.example.myapplication.mvp.LoveContract
+import com.example.myapplication.network.LoveResult
+import com.example.myapplication.mvp.LovePresenter
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoveCalculatorBinding
+import com.example.myapplication.mvp.LoveModel
 
 class LoveCalculatorFragment : Fragment(), LoveContract.View {
 
-    private var _binding: FragmentLoveCalculatorBinding? = null
-    private val binding get() = _binding!!
-    private val presenter = LovePresenter(this)
+    private val binding by lazy {
+        FragmentLoveCalculatorBinding.inflate(layoutInflater)
+    }
+
+    private lateinit var presenter: LoveContract.Presenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoveCalculatorBinding.inflate(inflater, container, false)
+        presenter = LovePresenter(this, LoveModel())
         return binding.root
     }
 
@@ -38,16 +41,23 @@ class LoveCalculatorFragment : Fragment(), LoveContract.View {
                 return@setOnClickListener
             }
 
-            presenter.getPercentage(firstName, secondName)
+            presenter.calculateLovePercentage(firstName, secondName)
         }
     }
+    override fun showProgress() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
 
-    override fun showResult(result: LoveModel) {
-        val percentage = result.percentage.toIntOrNull() ?: 0
+    override fun hideProgress() {
+        binding.progressBar.visibility = View.GONE
+    }
+
+
+    override fun showResult(result: LoveResult) {
         val bundle = Bundle().apply {
             putString("firstName", result.firstName)
             putString("secondName", result.secondName)
-            putInt("percentage", percentage)
+            putInt("percentage", result.percentage.toIntOrNull() ?: 0)
         }
         val resultFragment = ResultFragment().apply {
             arguments = bundle

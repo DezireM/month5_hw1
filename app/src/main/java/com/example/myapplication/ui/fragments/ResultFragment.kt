@@ -11,35 +11,34 @@ import com.example.myapplication.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment() {
 
-    private var _binding: FragmentResultBinding? = null
-    private val binding get() = _binding!!
-
+    private val binding by lazy {
+        FragmentResultBinding.inflate(layoutInflater)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fillData()
-    }
 
-    private fun fillData() = with(binding) {
+
         val firstName = arguments?.getString("firstName")
         val secondName = arguments?.getString("secondName")
         val percentage = arguments?.getString("percentage")
 
-        tvYouResult.text = firstName
-        tvMeResult.text = secondName
-        tvProcent.text = "$percentage%"
+        binding.tvYouResult.text = firstName
+        binding.tvMeResult.text = secondName
+        binding.tvProcent.text = "$percentage%"
 
-        btnTryAgain.setOnClickListener {
+        binding.btnTryAgain.setOnClickListener {
             val loveCalculatorFragment = LoveCalculatorFragment()
+
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, loveCalculatorFragment).addToBackStack(null)
+                .replace(R.id.fragment_container, loveCalculatorFragment)
+                .addToBackStack(null)
                 .commit()
         }
     }
